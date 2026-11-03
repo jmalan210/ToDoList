@@ -24,6 +24,7 @@ MSVC (compiler)
 
 - [Coddy](https://coddy.tech/journeys/cpp/fundamentals)
 - [Codecademy](https://www.codecademy.com/learn)
+- [CPPReference.com](https://en.cppreference.com/)
 - [Introductory Videos for C++](https://code.visualstudio.com/docs/cpp/introvideos-cpp)
 - [Learn C++](https://www.learncpp.com/)
 
