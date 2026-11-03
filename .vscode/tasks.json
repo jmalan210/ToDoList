@@ -5,8 +5,17 @@
             "label": "Build ToDoList",
             "type": "shell",
             "command": "cl",
-            "args": [],
-            "problemMatcher": []
+            "args": ["/std:c++20", "/EHsc", "/Fe:ToDoList.exe", "main.cpp", "Item.cpp"  ],
+            "problemMatcher": ["$msCompile"],
+            "group": {"kind": "build", "isDefault": true}
         
+}, 
+{
+    "label": "Run ToDoList", 
+    "type": "shell",
+    "command": "./ToDoList.exe", 
+    "dependsOn": "Build ToDoList",
+    "dependsOrder": "sequence"
+
 }]
 }
