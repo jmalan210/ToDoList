@@ -1,13 +1,16 @@
 #include <iostream>
 #include "Item.h"
+#include "List.h"
 
 int main() {
 
+    List todoList("My To-Do List");
     Item groceries("Go grocery shopping");
-    std::string description = groceries.getDesc();
-    groceries.setCompStatus(true);
-    bool compStatus = groceries.getCompStatus();
-    
+    Item bills("Pay bills");
+    Item laundry("Wash laundry");
 
-    std::cout << description << compStatus;
+    todoList.addItem(groceries);
+    todoList.addItem(bills);
+    todoList.addItem(laundry);
+    todoList.displayItems();
 }

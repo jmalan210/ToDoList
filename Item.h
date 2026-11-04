@@ -12,15 +12,10 @@ class Item {
 
     public:
         Item(std::string desc);
-        std::string getDesc() const{
-            return m_desc;
-        }
 
-        bool getCompStatus() const{
-            return m_compStatus;
-        }
+        std::string getDesc() const;
 
-        void setCompStatus(bool compStatus){
-            m_compStatus = compStatus;
-        }
+        bool getCompStatus() const;
+
+        void setCompStatus(bool compStatus);
 };
