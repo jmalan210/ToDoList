@@ -12,5 +12,10 @@ int main() {
     todoList.addItem(groceries);
     todoList.addItem(bills);
     todoList.addItem(laundry);
+    
+
+    todoList.toggleCompStatus(2);
+    // todoList.editDesc(2, "Go to the post office");
+    todoList.deleteItem(2);
     todoList.displayItems();
 }

@@ -21,6 +21,10 @@ void Item::setCompStatus(bool compStatus)
     m_compStatus = compStatus;
 }
 
+void Item:: setDesc( std::string desc) {
+    m_desc = desc;
+}
+
 Item::Item(std::string desc) : m_desc{desc}, m_compStatus{false}, m_dateAdded{getCurrentDate()}
 {
 }

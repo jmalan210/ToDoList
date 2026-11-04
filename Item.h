@@ -13,9 +13,13 @@ class Item {
     public:
         Item(std::string desc);
 
+        void setDesc(std::string desc);
+        
         std::string getDesc() const;
 
         bool getCompStatus() const;
 
         void setCompStatus(bool compStatus);
+
+        
 };
