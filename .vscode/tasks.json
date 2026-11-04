@@ -5,7 +5,7 @@
             "label": "Build ToDoList",
             "type": "shell",
             "command": "cl",
-            "args": ["/std:c++20", "/EHsc", "/Fe:ToDoList.exe", "main.cpp", "Item.cpp", "List.cpp"  ],
+            "args": ["/std:c++20", "/EHsc", "/Fe:ToDoList.exe", "main.cpp", "Item.cpp", "List.cpp", "ListManager.cpp"  ],
             "problemMatcher": ["$msCompile"],
             "group": {"kind": "build", "isDefault": true}
         
