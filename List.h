@@ -24,4 +24,6 @@ class List {
         void editDesc(int listPosition, std::string newDesc);
 
         void deleteItem(int listPosition);
+
+        void saveToFile() const; 
 };

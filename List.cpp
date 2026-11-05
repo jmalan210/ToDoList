@@ -1,6 +1,7 @@
 #include <iostream>
 #include <iomanip>
 #include <cstddef>
+#include <fstream>
 #include "List.h"
 
 List::List (std::string name): m_name{name} {
@@ -78,4 +79,17 @@ void List::deleteItem(int listPosition) {
     }
     else
         m_list.erase(m_list.begin() + listPosition -1);
+}
+
+void List::saveToFile() const{
+    std::ofstream outFile("SavedLists/" + m_name + ".txt");
+    if (outFile) {
+        outFile << m_name << "\n";
+        for (Item item : m_list) {
+
+            outFile << item.getDesc() << "|" << item.getCompStatus() << "|" << item.getDateAdded().year() << "-" << item.getDateAdded().month() << "-" << item.getDateAdded().day() << "\n";
+        }
+    }
+    else
+        std::cerr <<"File failed to save";
 }

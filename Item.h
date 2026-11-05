@@ -13,6 +13,8 @@ class Item {
     public:
         Item(std::string desc);
 
+        Item(std::chrono::year_month_day, std::string desc, bool compStatus);
+
         void setDesc(std::string desc);
         
         std::string getDesc() const;
@@ -21,5 +23,5 @@ class Item {
 
         void setCompStatus(bool compStatus);
 
-        
+        std::chrono::year_month_day getDateAdded() const;
 };
