@@ -53,8 +53,11 @@ void ListManager::deleteList(int libraryPosition){
     if (isValidPosition(libraryPosition) == false) {
         throw std::out_of_range("That number is not on the list");
     }
-    else
+    else {
+        deleteFile(libraryPosition);
         m_library.erase(m_library.begin() + libraryPosition - 1);
+    }
+        
 
 }
 
@@ -73,11 +76,14 @@ void ListManager::saveList(int libraryPosition) {
 }
 
 void ListManager::deleteFile(int libraryPosition){
+   
     if (isValidPosition(libraryPosition) == false)
     {
+        
         throw std::out_of_range("That number is not on the list");
     }
     else {
         std::filesystem::remove("SavedLists/" + m_library[libraryPosition-1].getName() + ".txt");
+       
     }
 }

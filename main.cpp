@@ -39,6 +39,7 @@ int main() {
 
     Item groceries("Go grocery shopping");
 
-    library.returnList(1).addItem(groceries);
+
     library.saveList(1);
+    library.deleteList(2);
 };
