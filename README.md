@@ -2,9 +2,9 @@
 
 This program is authored by Jennifer Malan. 
 
-{Provide a description of the software that you wrote to demonstrate the C++ language.}
+This software allows the user to create and maintain a library of to-do lists.  Users can create lists, add items to lists, indicate whether or not items are completed, edit and remove items, or remove lists from the library. 
 
-In authoring this program, I aim to become familiar with the C++ language and apply to object-oriented programming. 
+In authoring this program, I aim to become familiar with the C++ language and apply it to object-oriented programming. 
 
 {Provide a link to your YouTube demonstration. It should be a 4-5 minute demo of the software running and a walkthrough of the code. Focus should be on sharing what you learned about the language syntax.}
 
@@ -12,11 +12,11 @@ In authoring this program, I aim to become familiar with the C++ language and ap
 
 # Development Environment
 
-{Describe the tools that you used to develop the software}
+
 Visual Studio Code with C/C++ Extension
 MSVC (compiler)
 
-{Describe the programming language that you used and any libraries.}
+I used C++ with libraries iostream, iomanip, string, chrono, vector, fstream, limits. 
 
 # Useful Websites
 
@@ -32,6 +32,6 @@ MSVC (compiler)
 
 {Make a list of things that you need to fix, improve, and add in the future.}
 
-- Item 1
-- Item 2
-- Item 3
+- I would like to improve my use of dates. Right now the date is used in the file to record when it was added, but it could be added to the displayed list, or used to allow certain list items to fall off after a certain number of days have passed, or to give the user due dates on list items.
+- I could make the menus to add a new list more robust. Currently if the name of the list is already in use, the user is sent back to the main menu rather than being given an immediate chance to try a different name. 
+- I'd like to add some better formatting or even colors to make the console a little more readable.

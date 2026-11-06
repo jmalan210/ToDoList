@@ -1,5 +1,0 @@
-test1
-buy groceries|1|2026-11-06
-pick up dry cleaning|0|2026-11-06
-post office|0|2026-11-06
-pay bills|1|2026-11-06
