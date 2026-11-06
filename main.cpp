@@ -15,18 +15,21 @@ int main() {
     do
         {
             
-            std::cout << "\nWhat would you like to do?\nSelect a number from the list:\n1. Create a new list\n2. Open a saved list\nPress 0 to quit.\n";
+            std::cout << "\nWhat would you like to do?\nSelect a number from the list:\n1. Create a new list\n2. Open a saved list\n3. Delete a saved list\n4. Save and quit.\n";
             
             std::cin >> response;
             if (!std::cin) {
                 std::cin.clear();
                 std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); //instructs the program to ignore new line 
                 std::cout << "Invalid response. Try again.\n";
+                response = 1; //satisfies do-while loop condition so loop continues (otherwise response defaults to 0)
+                continue;
             }
-            else if (response !=0 && response != 1 && response != 2)
+            else if (response !=0 && response != 1 && response != 2 && response != 3 && response != 4)
                 
             {
                 std::cout << "Invalid response. Try again.\n";
+                continue;
             }
             
             else if (response == 1) {
@@ -143,14 +146,43 @@ int main() {
                 } while (editChoice != 5);
             }
         }
+            else if (response == 3) {
+                if (library.displayLibrary() == false) {
+                    std::cout << "No libraries to delete. Please select 1 to create a new list.";
+                }
+                else {
+                    
+                    std::cout << "Please select the number of the list you would like to delete.";
+                    int delFile;
+                    std::cin >> delFile;
+                    if (!std::cin)
+                    {
+                        std::cin.clear();
+                        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // instructs the program to ignore new line
+                        std::cout << "Invalid response. Try again.\n";
+                        response = 1; // satisfies do-while loop condition so loop continues (otherwise response defaults to 0)
+                        continue;
+                    }
 
-            else if ( response == 0) {
+                    else {
+                        if (library.validatePosition(delFile) ==true) {
+                            library.deleteList(delFile);
+                            std::cout << "List successfully deleted.";
+                        }
+                        else {
+                            std::cout << "No file exists at that number. Please try again";
+                        }
+                    }
+                }
+            }
+            else if ( response == 4) {
                 library.saveAllLists();
                 std::cout << "All lists saved! Goodbye!";
+               
             }
            
             
-        } while (response != 0);
+        } while (response != 4);
 
     
 };
