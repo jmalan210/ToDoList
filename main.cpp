@@ -1,27 +1,30 @@
 #include <iostream>
+#include <string>
+#include <limits>
 #include "Item.h"
 #include "List.h"
 #include "ListManager.h"
 
 int main() {
 
-    // List todoList("My To-Do List");
-    // Item groceries("Go grocery shopping");
-    // Item bills("Pay bills");
-    // Item laundry("Wash laundry");
-
-    // todoList.addItem(groceries);
-    // todoList.addItem(bills);
-    // todoList.addItem(laundry);
-    
-
-    // todoList.toggleCompStatus(2);
-    // // todoList.editDesc(2, "Go to the post office");
-    // todoList.deleteItem(2);
-    // todoList.displayItems();
-
     ListManager library;
     library.loadSavedLists();
-    library.displayLibrary();
-    
+    int response = 0;
+    do
+        {
+            std::cout << "Welcome to Your To-Do List Manager!\n";
+            std::cout << "What would you like to do today?\nSelect a number from the list:\n1. Create a new list\n2. Open a saved list\n";
+            
+            std::cin >> response;
+            if (!std::cin) {
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                std::cout << "Invalid response. Try again.\n";
+            }
+            else if (response != 1 && response != 2)
+                
+            {
+                std::cout << "Invalid response. Try again.\n";
+            }
+        } while (response != 1 && response != 2);
 };
