@@ -13,7 +13,7 @@ class ListManager {
     public:
         void createList(std::string listName);
 
-        void displayLibrary();
+        bool displayLibrary();
 
         List& returnList(int libraryPosition);
 
@@ -28,4 +28,6 @@ class ListManager {
         void deleteFile(int libraryPosition);
 
         void loadSavedLists();
+
+        bool validatePosition(int libraryPosition);
 };

@@ -15,7 +15,7 @@ int main() {
     do
         {
             
-            std::cout << "\nWhat would you like to do?\nSelect a number from the list:\n1. Create a new list\n2. Open a saved list\nPress 0 to quit at any time.\n";
+            std::cout << "\nWhat would you like to do?\nSelect a number from the list:\n1. Create a new list\n2. Open a saved list\nPress 0 to quit.\n";
             
             std::cin >> response;
             if (!std::cin) {
@@ -51,19 +51,58 @@ int main() {
             }
 
             else if (response ==2) {
+
+                if (library.displayLibrary() == false) {
+                    std::cout << "No lists to display. Please select 1 to create a new list";
+                }
+                else {
                 std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // instructs the program to ignore new line
-                library.displayLibrary();
+                
                 std::cout << "Please select a number: ";
                 int listNumber;
                 std::cin >> listNumber;
-                library.returnList(listNumber).displayItems();
-                int editChoice;
+                if (!std::cin)
+                {
+                    std::cin.clear();
+                    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // instructs the program to ignore new line
+                    std::cout << "Invalid response. Try again.\n";
+                    continue;
+                }
+
+                if (library.validatePosition(listNumber) == true) {
+
+                library.returnList(listNumber).displayItems();}
+                 
+                else {
+                    std::cout << "Invalid input.";
+                    continue;
+                }
+
+                int editChoice = 6;
                 
                 do {
-                    std::cout << "\nWhat would you like to do?\n1. Edit an item description\n 2. Change an item's completion status\n3. Delete a list item\n4. Return to main menu\n";
+                    std::cout << "\nWhat would you like to do?\n1. Add a new item\n2. Edit an item description\n3. Change an item's completion status\n4. Delete a list item\n5. Return to main menu\n";
                     std::cin >> editChoice;
+                    if (!std::cin)
+                    {
+                        std::cin.clear();
+                        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // instructs the program to ignore new line
+                        std::cout << "Invalid response. Try again.\n";
+                        continue;
+                    }
 
                     if (editChoice == 1){
+                        library.returnList(listNumber).displayItems();
+                        std::cout << "Please enter a new item description: ";
+                        std::string newDesc;
+                        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // instructs the program to ignore new line
+                        std::getline(std::cin, newDesc);
+                        library.returnList(listNumber).addItem(newDesc);
+                        library.returnList(listNumber).displayItems();
+                    }
+                                        
+
+                    else if (editChoice == 2){
                         library.returnList(listNumber).displayItems();
                         std::cout << "Please select the number of the item you would like to edit: ";
                         int editItem;
@@ -71,33 +110,39 @@ int main() {
                         std::cout << "Please enter a new item description: ";
                         std::string newDesc;
                         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // instructs the program to ignore new line
-
                         std::getline(std::cin, newDesc);
                         library.returnList(listNumber).editDesc(editItem, newDesc);
                         library.returnList(listNumber).displayItems();
                     }
 
-                    else if (editChoice == 2) {
+                    else if (editChoice == 3) {
                         library.returnList(listNumber).displayItems();
                         std::cout << "Please select the number of the item you would like to mark complete or incomplete: ";
                         int editItem;
                         std::cin >> editItem;
                         library.returnList(listNumber).toggleCompStatus(editItem);
-                        std::cout << "Item status changed!";
+                        std::cout << "Item status changed!\n";
                         library.returnList(listNumber).displayItems();
                     }
 
-                    else if (editChoice == 3) {
+                    else if (editChoice == 4) {
                         library.returnList(listNumber).displayItems();
                         std::cout << "Please select the number of the item you would like to delete: ";
                         int editItem;
                         std::cin >> editItem;
                         library.returnList(listNumber).deleteItem(editItem);
-                        std::cout << "Item deleted!";
+                        std::cout << "Item deleted!\n";
                         library.returnList(listNumber).displayItems();
                     }
-                } while (editChoice != 4);
+                    else if (editChoice !=5) {
+
+                        
+                            std::cout << "Invalid response. Try again.\n";
+                        
+                    }
+                } while (editChoice != 5);
             }
+        }
 
             else if ( response == 0) {
                 library.saveAllLists();

@@ -25,13 +25,20 @@ void ListManager::createList(std::string listName) {
         std::cout << "\n" << listName << " already exists. Please try again. \n";
 }
 
-void ListManager::displayLibrary() {
+bool ListManager::displayLibrary() {
     
+        if (m_library.size() == 0) {
+            
+            return false;
+        }
+        else {
         for (int i = 0; i < m_library.size(); i++)
            
             {
                 std::cout << i+1 << ". "<< m_library[i].getName() << "\n";
             }
+}
+return true;
 }
 
 bool ListManager::isValidPosition(int libraryPosition) {
@@ -81,9 +88,9 @@ void ListManager::saveList(int libraryPosition) {
 }
 
 void ListManager::saveAllLists() {
-    for (List& list : m_library)
+    for (int i = 0; i < m_library.size(); i++)
     {
-       list.saveToFile();
+       saveList(i+1);
     }
 }
 
@@ -139,5 +146,9 @@ void ListManager::loadSavedLists(){
         
     }
 }
+}
+
+bool ListManager::validatePosition(int listPosition) {
+    return isValidPosition(listPosition);
 }
    

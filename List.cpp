@@ -87,7 +87,7 @@ void List::saveToFile() const{
         outFile << m_name << "\n";
         for (Item item : m_list) {
 
-            outFile << item.getDesc() << "|" << item.getCompStatus() << "|" << item.getDateAdded().year() << "-" << item.getDateAdded().month() << "-" << item.getDateAdded().day() << "\n";
+            outFile << item.getDesc() << "|" << item.getCompStatus() << "|" << item.getDateAdded().year() << "-" << static_cast<unsigned>(item.getDateAdded().month()) << "-" << item.getDateAdded().day() << "\n";
         }
     }
     else
