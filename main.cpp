@@ -10,6 +10,7 @@ int main() {
     ListManager library;
     library.loadSavedLists();
     int response = 0;
+    std::string listName = "";
     do
         {
             std::cout << "Welcome to Your To-Do List Manager!\n";
@@ -26,5 +27,13 @@ int main() {
             {
                 std::cout << "Invalid response. Try again.\n";
             }
+            else if (response == 1) {
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                std::cout << "What would you like to name your list?";
+                std::getline(std::cin, listName);
+                library.createList(listName);
+            }
         } while (response != 1 && response != 2);
+
+    
 };
