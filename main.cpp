@@ -21,25 +21,7 @@ int main() {
     // todoList.displayItems();
 
     ListManager library;
-    library.createList("My-Todo-List1");
-    library.createList("My-Todo-List2");
+    library.loadSavedLists();
+    library.displayLibrary();
     
-    try {
-
-        std::cout << library.returnList(2).getName();
-}
-    catch (std::out_of_range& e) {
-
-    
-    std::cout << e.what();
-}
-    catch(...)  {
-        std::cout << "Something went wrong!";
-    };
-
-    Item groceries("Go grocery shopping");
-
-
-    library.saveList(1);
-    library.deleteList(2);
 };
