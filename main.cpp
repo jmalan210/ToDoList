@@ -11,8 +11,11 @@ int main() {
     library.loadSavedLists();
     int response = 0;
     std::string listName = "";
-    std::cout << "Welcome to Your To-Do List Manager!\n";
-    do
+    std::string separator = std::string(40, '-');
+        std::cout << separator;
+        std::cout << "\nWelcome to Your To-Do List Manager!\n";
+        std::cout << separator;
+        do
         {
             
             std::cout << "\nWhat would you like to do?\nSelect a number from the list:\n1. Create a new list\n2. Open a saved list\n3. Delete a saved list\n4. Save and quit.\n";
@@ -158,7 +161,7 @@ int main() {
                 }
                 else {
                     
-                    std::cout << "Please select the number of the list you would like to delete.";
+                    std::cout << "Please select the number of the list you would like to delete: ";
                     int delFile;
                     std::cin >> delFile;
                     if (!std::cin)
