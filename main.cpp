@@ -36,7 +36,12 @@ int main() {
                 std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // instructs the program to ignore new line
                 std::cout << "What would you like to name your list? ";
                 std::getline(std::cin, listName);
-                library.createList(listName);
+                bool listCreated = library.createList(listName);
+                if (listCreated == false) {
+                    std::cout << "Please try again with a different name.";
+                    continue;
+                }
+                else {
                 std::cout << "Add an item to this list? (y/n) ";
                 std::string addItem;
                 std::getline(std::cin, addItem);
@@ -51,6 +56,7 @@ int main() {
                     std::getline(std::cin, addItem);
                 } while (addItem == "y");
                 }
+            }
             }
 
             else if (response ==2) {

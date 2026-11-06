@@ -11,7 +11,7 @@ class ListManager {
         bool isValidPosition(int libraryPosition);
 
     public:
-        void createList(std::string listName);
+        bool createList(std::string listName);
 
         bool displayLibrary();
 

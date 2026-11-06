@@ -6,6 +6,7 @@
 #include <filesystem>
 #include <fstream>
 
+//determines if the list name exists
 bool ListManager::listExists(std::string listName) {
     for (List list : m_library) {
        
@@ -16,15 +17,19 @@ bool ListManager::listExists(std::string listName) {
         return false;
     }
 
-void ListManager::createList(std::string listName) {
+//creates a new list and adds it to the library
+bool ListManager::createList(std::string listName) {
     if (listExists(listName) == false) {
         List newList({listName});
         m_library.push_back(newList);
+        return true;
     }
     else
         std::cout << "\n" << listName << " already exists. Please try again. \n";
+    return false;
 }
 
+//determines if the library has Lists in it, and if so displays the lists. Also returns a boolean value to determine if the library is empty or not. 
 bool ListManager::displayLibrary() {
     
         if (m_library.size() == 0) {
@@ -41,6 +46,7 @@ bool ListManager::displayLibrary() {
 return true;
 }
 
+//determines whether something exists in the library at the indicated position
 bool ListManager::isValidPosition(int libraryPosition) {
     if (libraryPosition <= 0 || libraryPosition > m_library.size()) {
         return false;
@@ -48,6 +54,7 @@ bool ListManager::isValidPosition(int libraryPosition) {
     return true;
 }
 
+//returns a list in the library at a given position
 List& ListManager::returnList(int libraryPosition) {
 
     if (isValidPosition(libraryPosition) == false) {
@@ -57,10 +64,12 @@ List& ListManager::returnList(int libraryPosition) {
         return m_library[libraryPosition-1];
 }
 
+//returns the last list added to the library
 List& ListManager::returnLastList() {
     return m_library.back();
 }
 
+//deletes a list in the library at the given position
 void ListManager::deleteList(int libraryPosition){
     if (isValidPosition(libraryPosition) == false) {
         throw std::out_of_range("That number is not on the list");
@@ -73,7 +82,7 @@ void ListManager::deleteList(int libraryPosition){
 
 }
 
-//creates SavedLists directory if it doesn't already exist
+//creates SavedLists directory if it doesn't already exist and then saves the file into SavedLists
 void ListManager::saveList(int libraryPosition) {
     if (isValidPosition(libraryPosition) == false)
     {
@@ -87,6 +96,7 @@ void ListManager::saveList(int libraryPosition) {
 
 }
 
+//saves all lists the user created/edited during the session into the SavedLists directory
 void ListManager::saveAllLists() {
     for (int i = 0; i < m_library.size(); i++)
     {
@@ -94,6 +104,7 @@ void ListManager::saveAllLists() {
     }
 }
 
+//deletes a file in the SavedLists directory
 void ListManager::deleteFile(int libraryPosition){
    
     if (isValidPosition(libraryPosition) == false)
@@ -107,6 +118,7 @@ void ListManager::deleteFile(int libraryPosition){
     }
 }
 
+//reads files in the SavedLists directory and populates a library for main() to use during the session
 void ListManager::loadSavedLists(){
     if (!std::filesystem::exists("SavedLists")) {
         return;
@@ -148,6 +160,7 @@ void ListManager::loadSavedLists(){
 }
 }
 
+//validates a position in the library (accesses a private function)
 bool ListManager::validatePosition(int listPosition) {
     return isValidPosition(listPosition);
 }

@@ -4,18 +4,22 @@
 #include <fstream>
 #include "List.h"
 
+//List constructor
 List::List (std::string name): m_name{name} {
 
 }
 
+//returns the name of the List
 std::string List::getName() const {
     return m_name;
 }
 
+//adds an item to the back of the list
 void List::addItem(Item item) {
     m_list.push_back(item);
 }
 
+//displays each item on the list
 void List::displayItems() {
     
         for (int i = 0; i < m_list.size(); i++) {
@@ -50,6 +54,7 @@ bool List::isValidPosition(int listPosition) {
         return false;
 }
 
+//toggles the boolean value of the indicated List item 
 void List::toggleCompStatus(int listPosition) {
 
     if (isValidPosition(listPosition) == false) {
@@ -61,6 +66,7 @@ void List::toggleCompStatus(int listPosition) {
 
 }
 
+//edits the description of the indicated List item
 void List::editDesc(int listPosition, std::string newDesc) {
 
     if (isValidPosition(listPosition) == false)
@@ -72,6 +78,7 @@ void List::editDesc(int listPosition, std::string newDesc) {
         m_list[listPosition - 1].setDesc(newDesc);
 }
 
+//deletes an item at the indicated List position
 void List::deleteItem(int listPosition) {
     if (isValidPosition(listPosition) == false) {
         std::cout << "Invalid input. Please try again.";
@@ -81,6 +88,7 @@ void List::deleteItem(int listPosition) {
         m_list.erase(m_list.begin() + listPosition -1);
 }
 
+//writes the file to the SavedLists/ directory
 void List::saveToFile() const{
     std::ofstream outFile("SavedLists/" + m_name + ".txt");
     if (outFile) {
