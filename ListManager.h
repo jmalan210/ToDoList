@@ -22,4 +22,6 @@ class ListManager {
         void saveList(int libraryPosition); //creates SavedFiles directory if it doesn't already exist
 
         void deleteFile(int libraryPosition);
+
+        void loadSavedLists();
 };
