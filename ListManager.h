@@ -17,9 +17,13 @@ class ListManager {
 
         List& returnList(int libraryPosition);
 
+        List &returnLastList();
+
         void deleteList(int libraryPosition);
 
-        void saveList(int libraryPosition); //creates SavedFiles directory if it doesn't already exist
+        void saveList(int libraryPosition); //creates SavedLists directory if it doesn't already exist
+
+        void saveAllLists();
 
         void deleteFile(int libraryPosition);
 

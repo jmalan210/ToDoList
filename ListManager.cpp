@@ -50,6 +50,10 @@ List& ListManager::returnList(int libraryPosition) {
         return m_library[libraryPosition-1];
 }
 
+List& ListManager::returnLastList() {
+    return m_library.back();
+}
+
 void ListManager::deleteList(int libraryPosition){
     if (isValidPosition(libraryPosition) == false) {
         throw std::out_of_range("That number is not on the list");
@@ -62,7 +66,7 @@ void ListManager::deleteList(int libraryPosition){
 
 }
 
-//creates SavedFiles directory if it doesn't already exist
+//creates SavedLists directory if it doesn't already exist
 void ListManager::saveList(int libraryPosition) {
     if (isValidPosition(libraryPosition) == false)
     {
@@ -74,6 +78,13 @@ void ListManager::saveList(int libraryPosition) {
 
    m_library[libraryPosition - 1].saveToFile();
 
+}
+
+void ListManager::saveAllLists() {
+    for (List& list : m_library)
+    {
+       list.saveToFile();
+    }
 }
 
 void ListManager::deleteFile(int libraryPosition){
