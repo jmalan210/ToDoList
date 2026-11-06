@@ -12,7 +12,6 @@ In authoring this program, I aim to become familiar with the C++ language and ap
 
 # Development Environment
 
-
 Visual Studio Code with C/C++ Extension
 MSVC (compiler)
 
@@ -20,8 +19,7 @@ I used C++ with libraries iostream, iomanip, string, chrono, vector, fstream, li
 
 # Useful Websites
 
-{Make a list of websites that you found helpful in this project}
-
+- [ChatGPT](https://chatgpt.com/)
 - [Coddy](https://coddy.tech/journeys/cpp/fundamentals)
 - [Codecademy](https://www.codecademy.com/learn)
 - [CPPReference.com](https://en.cppreference.com/)
@@ -29,8 +27,6 @@ I used C++ with libraries iostream, iomanip, string, chrono, vector, fstream, li
 - [Learn C++](https://www.learncpp.com/)
 
 # Future Work
-
-{Make a list of things that you need to fix, improve, and add in the future.}
 
 - I would like to improve my use of dates. Right now the date is used in the file to record when it was added, but it could be added to the displayed list, or used to allow certain list items to fall off after a certain number of days have passed, or to give the user due dates on list items.
 - I could make the menus to add a new list more robust. Currently if the name of the list is already in use, the user is sent back to the main menu rather than being given an immediate chance to try a different name. 
