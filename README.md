@@ -6,9 +6,7 @@ This software allows the user to create and maintain a library of to-do lists.  
 
 In authoring this program, I aim to become familiar with the C++ language and apply it to object-oriented programming. 
 
-{Provide a link to your YouTube demonstration. It should be a 4-5 minute demo of the software running and a walkthrough of the code. Focus should be on sharing what you learned about the language syntax.}
-
-[Software Demo Video](http://youtube.link.goes.here)
+[Software Demo Video](https://youtu.be/ExlqfGPMaso)
 
 # Development Environment
 
